@@ -1,6 +1,7 @@
 
 const config = {
-    api: 'http://localhost:8080/'
+    api: 'https://wesempire.co.ke/qt_law/api/',
+    app: '/'
 }
 
 export {config}

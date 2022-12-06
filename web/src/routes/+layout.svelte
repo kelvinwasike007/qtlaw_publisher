@@ -9,7 +9,7 @@
           <li><a href="/new">New Publication</a></li>
           <li><a href="/new_from_template">Publication From A Template</a></li>
           <li><a href="/">List Publications</a></li>
-          <li><a href="/templates">Manage Templates</a></li>
+          <li><a href="/template/new">Add Templates</a></li>
         </ul>
       </div>
     </div>

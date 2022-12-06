@@ -15,6 +15,7 @@
 
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\PublicationController;
+use App\Http\Controllers\TemplateController;
 
 $router->get('/', function () use ($router) {
     return $router->app->version();
@@ -25,3 +26,8 @@ $router->post('signup', 'AuthenticationController@signup');
 $router->post('/publication', 'PublicationController@new');
 $router->get('/list/{user_id}', 'PublicationController@list');
 $router->get('/find/{publication}', 'PublicationController@find');
+$router->post('/template/add', 'TemplateController@new');
+$router->get('/template/list', 'TemplateController@list');
+$router->put('/template/edit', 'TemplateController@edit');
+$router->delete('/template/delete/{id}', 'TemplateController@delete');
+$router->get('/template/find/{title}', 'TemplateController@find');

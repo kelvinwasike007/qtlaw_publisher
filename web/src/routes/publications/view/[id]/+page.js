@@ -1,4 +1,5 @@
-import { config } from '../../../lib/config'
+import { config } from '../../../../lib/config'
+
 
 /** @type {import('./$types').PageLoad} */
 export async function load({ params }) {
