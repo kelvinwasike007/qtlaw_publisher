@@ -1,20 +1,13 @@
+<script>
+  import {base} from '$app/paths'
+</script>
 <div class=" h-screen flex flex-col">
   <div class="navbar bg-base-100">
     <div class="navbar-start">
-      <div class="dropdown">
-        <span tabindex="0" class="btn btn-ghost btn-circle">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
-        </span>
-        <ul  class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-          <li><a href="/new">New Publication</a></li>
-          <li><a href="/new_from_template">Publication From A Template</a></li>
-          <li><a href="/">List Publications</a></li>
-          <li><a href="/template/new">Add Templates</a></li>
-        </ul>
-      </div>
+      
     </div>
     <div class="navbar-center">
-      <a href="/" class="btn btn-ghost normal-case text-xl">QTLAW PUBLICATIONS</a>
+      <a href="{base}/" class="btn btn-ghost normal-case text-xl">QTLAW PUBLICATIONS</a>
     </div>
     <div class="navbar-end">
       <button class="btn btn-ghost btn-circle">
