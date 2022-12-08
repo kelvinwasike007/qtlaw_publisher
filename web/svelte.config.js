@@ -8,7 +8,7 @@ const config = {
 
 		}),
 		paths:{
-			base: '/app/qt_law'
+			base: ''
 		}
 	}
 };

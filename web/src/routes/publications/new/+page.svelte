@@ -1,6 +1,8 @@
 <script>
     import { onMount } from "svelte";
+    import { saveAs } from 'file-saver';
     import {config} from '../../../lib/config';
+    import { pdfExporter } from 'quill-to-pdf';
   
     let editor;
     let quill;
@@ -11,24 +13,47 @@
           [{ header: 1 }, { header: 2 }, "blockquote", "link", "image", "video"],
           ["bold", "italic", "underline", "strike"],
           [{ list: "ordered" }, { list: "ordered" }],
+          [{ 'size': [{'14px':'14'}, '16px', '18px'] }],
           [{ align: [] }],
           ["clean"]
       ];
       
     onMount(async () => {
           const { default: Quill } = await import("quill");
+          var Size = Quill.import('attributors/style/size');
+          Size.whitelist = ['14px', '16px', '18px'];
+          Quill.register(Size, true);
       
        quill = new Quill(editor, {
         modules: {
           toolbar: toolbarOptions
         },
+        formats: [
+          'bold',
+      'italic',
+      'underline',
+      'strike',
+      'align',
+      'list',
+      'indent',
+      'size',
+      'header',
+      'link',
+      'image',
+      'video',
+      'color',
+      'background',
+      'clean',
+        ],
         theme: "snow",
         placeholder: "Compose Publication..."
       });
     });
   
-    function preview() {
-      window.location.href='/preview'
+    async function preview() {
+      const quillDelta = quill.getContents();
+      const pdfBlob = await pdfExporter.generatePdf(quillDelta);
+      saveAs(pdfBlob, 'pdf-export.pdf')
     }
     function _new() {
       window.location.reload()
@@ -36,6 +61,8 @@
 
     async function save(){
       var delta = quill.getContents();
+      console.log(delta)
+      return ;
       var body = {
         user_id : 'kelvin',
         title: Title,
