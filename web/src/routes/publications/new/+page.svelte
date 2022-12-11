@@ -3,6 +3,7 @@
     import { saveAs } from 'file-saver';
     import {config} from '../../../lib/config';
     import { pdfExporter } from 'quill-to-pdf';
+   
   
     let editor;
     let quill;
@@ -62,7 +63,7 @@
     async function save(){
       var delta = quill.getContents();
       console.log(delta)
-      return ;
+
       var body = {
         user_id : 'kelvin',
         title: Title,

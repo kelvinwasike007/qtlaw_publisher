@@ -19,6 +19,9 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"jspdf": "^2.5.1",
+		"pdfkit": "^0.13.0",
+		"pdfmake": "^0.2.6",
 		"quill": "^1.3.7",
 		"quill-to-pdf": "^1.0.7"
 	}
