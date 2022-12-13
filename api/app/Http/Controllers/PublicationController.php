@@ -37,7 +37,7 @@ class PublicationController extends Controller
 
     public function list($user_id){
         $publications = DB::table('publications')
-            ->where('user_id', $user_id)
+            ->where('user_id', urldecode($user_id))
             ->get();
         return response()->json($publications)
             ->withHeaders([

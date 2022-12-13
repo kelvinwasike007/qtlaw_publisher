@@ -21,7 +21,7 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->post('/auth', 'AuthenticationController@authenticate');
+$router->post('/auth/{user_id}', 'AuthenticationController@authenticate');
 $router->post('signup', 'AuthenticationController@signup');
 $router->post('/publication', 'PublicationController@new');
 $router->get('/list/{user_id}', 'PublicationController@list');
