@@ -37,7 +37,7 @@
     async function save(){
       var delta = quill.getContents();
       var body = {
-        user_id : 'kelvin',
+        user_id : localStorage.getItem('user'),
         title: Title,
         template: JSON.stringify(delta.ops)
       }

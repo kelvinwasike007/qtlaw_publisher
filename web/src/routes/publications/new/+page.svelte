@@ -65,7 +65,7 @@
       console.log(delta)
 
       var body = {
-        user_id : 'kelvin',
+        user_id : localStorage.getItem('user'),
         title: Title,
         publication: JSON.stringify(delta.ops)
       }

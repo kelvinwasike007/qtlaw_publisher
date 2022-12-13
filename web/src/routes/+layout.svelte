@@ -1,13 +1,14 @@
 <script>
-  import {base} from '$app/paths'
+ import {base} from '$app/paths'
 </script>
+
 <div class=" h-screen flex flex-col">
   <div class="navbar bg-base-100">
     <div class="navbar-start">
       
     </div>
     <div class="navbar-center">
-      <a href="{base}/" class="btn btn-ghost normal-case text-xl">QTLAW PUBLICATIONS</a>
+      <a href="/" class="btn btn-ghost normal-case text-xl">QTLAW PUBLICATIONS</a>
     </div>
     <div class="navbar-end">
       <button class="btn btn-ghost btn-circle">

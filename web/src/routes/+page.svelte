@@ -1,5 +1,20 @@
 <script>
     import {base} from '$app/paths'
+  import {page} from '$app/stores'
+  import {config} from '../lib/config'
+    import { onMount } from 'svelte';
+  onMount(async ()=>{
+    const sync = await fetch(`${config.api}/sync`);
+    const authReq = await fetch(`${config.api}auth/${$page.url.searchParams.get('user')}`, {method:'POST'})
+    const response = await authReq.json()
+    if(response.status == 'Invalid'){
+      window.location.href=`${base}/error`
+      return;
+    }
+
+    localStorage.setItem('user', $page.url.searchParams.get('user'))
+
+  })
 </script>
 <div class="h-full flex items-center">
     <div class="flex flex-col">
