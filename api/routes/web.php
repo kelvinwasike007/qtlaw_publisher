@@ -31,3 +31,4 @@ $router->get('/template/list', 'TemplateController@list');
 $router->put('/template/edit', 'TemplateController@edit');
 $router->delete('/template/delete/{id}', 'TemplateController@delete');
 $router->get('/template/find/{title}', 'TemplateController@find');
+$router->get('/sync', 'AuthenticationController@sync');

@@ -52,5 +52,25 @@ class AuthenticationController extends Controller
         ]);
     }
 
+    public function sync()
+    {
+        $xml = file_get_contents('https://qtlaw.info/sync.php');
+        $users = json_decode($xml);
+        foreach ($users as $user) {
+           $user = DB::table('users')->where('user_id', $user[0]);
+           if(count($user)<0){
+            DB::table('users')
+            ->insert([
+                'user_id'=>$users[0],
+                "created_at" =>  date('Y-m-d H:i:s'),
+                "updated_at" => date('Y-m-d H:i:s')
+            ]);
+           }
+        }
+
+        return response()->json(['status'=>'Sync Completed']);
+        
+    }
+
     //
 }
