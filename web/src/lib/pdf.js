@@ -1,13 +1,22 @@
-
+import * as pdfMake from 'pdfmake/build/pdfmake';
+//import * as pdfFonts from 'pdfmake/build/vfs_fonts';
+pdfMake.fonts={
+    Roboto: {
+        normal: 'https://qtlaw.info/fonts/adc.ttf',
+        bold: 'https://qtlaw.info/fonts/adc.ttf',
+        italics: 'https://qtlaw.info/fonts/adc.ttf',
+        bolditalics: 'https://qtlaw.info/fonts/adc.ttf'
+      },
+}
 
 
 const save = async (data, file)=>{
-    const {default: pdfMake} = await import('pdfmake/build/pdfmake')
-    const {default: pdfFonts} = await import('pdfmake/build/vfs_fonts')
-    pdfMake.vfs = pdfFonts.pdfMake.vfs
 
     const doc = {
-        content: []
+        content: [],
+        defaultStyle:{
+            font: 'Roboto'
+        }
     }
     console.log(data);
     var sentence = ''
